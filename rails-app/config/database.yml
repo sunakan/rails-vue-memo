@@ -2,6 +2,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV['APP_DATABASE_HOSTNAME'] %>
   database: <%= ENV['APP_DATABASE_NAME'] %>
   username: <%= ENV['APP_DATABASE_USERNAME'] %>
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
@@ -12,4 +13,4 @@ test:
   <<: *default
 production:
   <<: *default
-  database: app_production
+  database: rails_vue_memoapp

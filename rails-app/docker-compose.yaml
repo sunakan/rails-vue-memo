@@ -5,11 +5,17 @@ version: '3.8'
 services:
   app:
     build: .
+    ports:
+      - 3000:3000
     volumes:
       - type: bind
         source: ${PWD}/
         target: /var/local/app
+      - type: volume
+        source: bundle_install
+        target: /usr/local/bundle/
     environment:
+      APP_DATABASE_HOSTNAME: arjuna.db.elephantsql.com
       APP_DATABASE_NAME: tdvdqjud
       APP_DATABASE_USERNAME: tdvdqjud
       APP_DATABASE_PASSWORD: IaamFeW6TW4g3wHKyQIB2zV9hQNSEj43
