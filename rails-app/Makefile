@@ -13,6 +13,10 @@ bash: ## docker-compose run --rm --service-ports app bash
 chown: ## sudo chown -R ${USER}:${USER} ./
 	sudo chown -R ${USER}:${USER} ./
 
+.PHONY: down
+down: ## docker-compose down
+	docker-compose down
+
 .PHONY: s
 s: ## bundle exec rails s -b 0.0.0.0
 	bundle exec rails s -b 0.0.0.0
